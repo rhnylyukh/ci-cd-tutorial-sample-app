@@ -23,3 +23,7 @@ workflows:
           update-description: true 
           requires:
             - docker-build
+          filters:
+            branches:
+              only:
+                - main
