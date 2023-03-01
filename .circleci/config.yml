@@ -14,7 +14,11 @@ jobs:
 workflows:
   build-and-publish-docker-image:
     jobs:
-      - docker-build
+      - docker-build:
+          filters:
+            branches:
+              only:
+                - master
       - docker/publish:
           image: $CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME 
           deploy: true 
@@ -26,4 +30,4 @@ workflows:
           filters:
             branches:
               only:
-                - main
+                - master
